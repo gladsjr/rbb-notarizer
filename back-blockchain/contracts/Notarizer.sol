@@ -5,7 +5,7 @@ import "./RBBRegistry.sol";
 
 contract Notarizer {
 
-    RBBRegsitry public rbbRegistry;
+    RBBRegistry public rbbRegistry;
 
     // Constant that indicates that the document notarization was revoked
     uint NOTARIZATION_REVOKED = 0;
@@ -21,11 +21,13 @@ contract Notarizer {
     mapping (bytes32 => mapping (uint => NotarizationInfo)) public notarizationInfo;
 
     // Document hash, attester RBB Id, date of today and expiration date
-    event DocumentNotarized(byte32, uint, uint, uint);
+    event DocumentNotarized(bytes32, uint, uint, uint);
+    event NotarizationRevoked(bytes32, uint, uint);
 
-    constructor (address rbbRegistryAddr)
+    constructor (address rbbRegistryAddr) public
     {
-        rbbRegistry = (RBBRegistry) rbbRegistryAddr;
+        rbbRegistry = RBBRegistry (rbbRegistryAddr)
+        ;
     }
 
     function notarizeDocument(bytes32 hash, uint validDays) public 
@@ -35,16 +37,17 @@ contract Notarizer {
         uint expirationDate = now + validDays * 1 days;
         uint attesterRbbId = rbbRegistry.getId(msg.sender);
  
-        notarizationInfo[hash][attesterRbbId] = notarizationInfo(now, expirationDate);
+        notarizationInfo[hash][attesterRbbId] = NotarizationInfo(now, expirationDate);
 
         emit DocumentNotarized(hash, attesterRbbId, now, expirationDate);
     }
 
-    function revoke(bytes32 hash) public {
+    function revoke(bytes32 hash) public 
+    {
         uint attesterRbbId = rbbRegistry.getId(msg.sender);
 
-        verifications[hash][attesterRbbId] = 
-            notarizationInfo(NOTARIZATION_REVOKED, NOTARIZATION_REVOKED);
+        notarizationInfo[hash][attesterRbbId] = 
+            NotarizationInfo(NOTARIZATION_REVOKED, NOTARIZATION_REVOKED);
 
         emit NotarizationRevoked(hash, attesterRbbId, now);
     }

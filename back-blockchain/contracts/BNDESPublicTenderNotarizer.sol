@@ -5,7 +5,7 @@ import "./RBBRegistry.sol";
 
 contract BNDESPublicTenderNotarizer 
 {
-    RBBRegsitry public registry;
+    RBBRegistry public registry;
     uint ownerId;
 
     struct NotarizedPublicTender
@@ -35,11 +35,11 @@ contract BNDESPublicTenderNotarizer
 
     }
 
-    function notarizePublicTender (uint publicTenderId, byte32 documentListHash) 
+    function notarizePublicTender (uint publicTenderId, bytes32 documentListHash) 
         public onlyOwner
     {   
         // If there is no value set to this procurementId...
-        if (notarizedPublicTender[procurementId].documentListHash == 0)
+        if (notarizedPublicTender[publicTenderId].documentListHash == 0)
         {
             notarizedPublicTender[publicTenderId] = 
                 NotarizedPublicTender(documentListHash, now, 1);

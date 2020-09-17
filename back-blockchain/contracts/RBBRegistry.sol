@@ -10,7 +10,7 @@ contract RBBRegistry
     constructor (uint id) public 
     {
         ownerId = id;
-        ownerAddr = msg.self;
+        ownerAddr = msg.sender;
     
     }
 
