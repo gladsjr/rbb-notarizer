@@ -3578,9 +3578,74 @@
     "name": "solc",
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {
+        "0x78336e7170b13ae30fcc2eaa55cb163f2e46e5023b5fb4ac1e650f917b4481c9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "DocumentNotarized",
+          "type": "event"
+        },
+        "0xcb3d32453c48c4f22f21a43d7452078a45528a08521b3d85089b75e5f405e58e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "NotarizationRevoked",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xc40e207f04E0C1130FfbE32f868541314acc5A3D",
+      "transactionHash": "0x31b11e34cb2af31a73e16676f29f7613095375a35a32235ed4d6260e7638ad7e"
+    }
+  },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-09-17T23:09:03.511Z",
+  "updatedAt": "2020-09-21T20:50:45.565Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },

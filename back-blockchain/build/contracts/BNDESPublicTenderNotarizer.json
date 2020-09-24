@@ -3526,9 +3526,49 @@
     "name": "solc",
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {
+        "0xfe584818d6a6d08a1213fddf9b1733266dd12fa8b7740defed18b0a5584ceffa": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "name": "PublicTenderNotarized",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x4d21C8e5064D8740A792A0b1F48B4B66A1A08A54",
+      "transactionHash": "0x3e04a3dbeba5b9a3007d571afabbd357b7e4e0831887e86a093389d337115a2a"
+    }
+  },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-09-17T23:09:03.497Z",
+  "updatedAt": "2020-09-21T20:50:45.569Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },

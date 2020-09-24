@@ -3,10 +3,9 @@ const Notarizer = artifacts.require("Notarizer");
 const BNDESPublicTenderNotarizer = artifacts.require("BNDESPublicTenderNotarizer");
 
 module.exports = function(deployer) {
-  deployer.deploy(RBBRegistry);
-  deployer.link(RBBRegistry, Notarizer);
-  deployer.deploy(Notarizer);
-  deployer.link(RBBRegistry, BNDESPublicTenderNotarizer);
-  deployer.deploy(BNDESPublicTenderNotarizer);
-
+  deployer.deploy(RBBRegistry, 1000)
+  .then(() => deployer.link(RBBRegistry, Notarizer))
+  .then(() => deployer.deploy(Notarizer, RBBRegistry.address))
+  .then(() => deployer.link(RBBRegistry, BNDESPublicTenderNotarizer))
+  .then(() => deployer.deploy(BNDESPublicTenderNotarizer, RBBRegistry.address));
 };

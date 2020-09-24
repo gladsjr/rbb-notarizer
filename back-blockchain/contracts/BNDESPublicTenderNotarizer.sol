@@ -10,7 +10,7 @@ contract BNDESPublicTenderNotarizer
 
     struct NotarizedPublicTender
     {
-        bytes32 documentListHash;
+        uint256  documentListHash;
         uint    lastNotarizationDate;
         uint    version;
     }
@@ -20,7 +20,7 @@ contract BNDESPublicTenderNotarizer
 
     // Id of the procurement, hash of the document list, 
     // notarization date (now) and version 
-    event PublicTenderNotarized(uint, bytes32, uint, uint);
+    event PublicTenderNotarized(uint, uint256, uint, uint);
 
     modifier onlyOwner 
     {
@@ -35,7 +35,7 @@ contract BNDESPublicTenderNotarizer
 
     }
 
-    function notarizePublicTender (uint publicTenderId, bytes32 documentListHash) 
+    function notarizePublicTender (uint publicTenderId, uint256  documentListHash) 
         public onlyOwner
     {   
         // If there is no value set to this procurementId...

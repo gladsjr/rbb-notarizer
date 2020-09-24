@@ -4,8 +4,8 @@ pragma solidity >= 0.5.0 < 0.7.0;
 contract RBBRegistry  
 {
 
-    uint ownerId;
-    address ownerAddr;
+    uint    public ownerId;
+    address public ownerAddr;
 
     constructor (uint id) public 
     {
